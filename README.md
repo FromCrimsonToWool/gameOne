@@ -1,2 +1,2 @@
-# Castle_Of_The_Winds_-_Universal
+# Castle Of The Winds - Universal
 Castle of the Winds everywhere!
