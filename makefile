@@ -11,7 +11,7 @@ $(EXE): main.o
 	$(CXX) $(LDFLAGS) $< -o bin/$@
 
 main.o: main.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
+	$(CXX) $(CXXFLAGS) $< -o bin/$@
 
 clean:
 	rm *.o && rm $(EXE)

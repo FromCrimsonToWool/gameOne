@@ -1,5 +1,3 @@
-##Project specific ignores
-
 # Created by https://www.gitignore.io
 ### C++ ###
 # Compiled Object files
@@ -115,3 +113,9 @@ xcuserdata
 DerivedData
 *.xcuserstate
 
+
+
+##Project specific ignores
+bin/Castle_of_the_Winds-_Universal*
+!res/**/*.exe
+!res/**/*.dll
