@@ -29,8 +29,8 @@ std::ifstream fileRead; //Used to read from an initial settings file.
 int screenX, screenY; //Used to temporarily store read values from the settings file.
 
 const int SCREEN_WIDTH = 1600;
-const int SCREEN_HEIGHT = 900;
-const int TILE_SIZE = 40;
+const int SCREEN_HEIGHT = 928;
+const int TILE_SIZE = 32;
 
 int main(int argc, char** argv) {
 	//PRE GAME LOOP
@@ -97,16 +97,24 @@ int main(int argc, char** argv) {
 			if (event.type == SDL_KEYDOWN) {
 				switch (event.key.keysym.sym) {
 					case SDLK_UP:
-						pY = pY - 32;
+						if (pY >= 32) {
+							pY = pY - 32;
+						}
 					break;
 					case SDLK_DOWN:
-						pY = pY + 32;
+						if (pY <= SCREEN_HEIGHT - (TILE_SIZE * 2)) {
+							pY = pY + 32;
+						}
 					break;
 					case SDLK_LEFT:
-						pX = pX - 32;
+						if (pX >= TILE_SIZE) {
+							pX = pX - 32;
+						}
 					break;
 					case SDLK_RIGHT:
-						pX = pX + 32;
+						if (pX <= SCREEN_WIDTH - (TILE_SIZE * 2)) {
+							pX = pX + 32;
+						}
 					break;
 				}
 			}

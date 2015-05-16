@@ -1,4 +1,4 @@
-﻿Build started 5/14/2015 9:32:57 PM.
+﻿Build started 5/16/2015 12:33:03 PM.
      1>Project "H:\Dropbox\Game Development\ProjectGamma\CastleOfTheWinds\CastleOfTheWinds.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          M:\Applications\Microsoft Visual Studio Ultimate 2013\VC\bin\CL.exe /c /I"M:\Applications\SDL2-2.0.3\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -12,4 +12,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.69
+Time Elapsed 00:00:00.73
