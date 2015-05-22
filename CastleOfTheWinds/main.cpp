@@ -1,7 +1,7 @@
 /**
 PROJECT GAMMA: Castle of the Winds Redux (Julien)
 @author Julien Fernandes
-@version 0.01a
+@version 0.01b Wherein The Core and Shell Are Made
 **/
 
 //Standard Include
@@ -12,64 +12,90 @@ PROJECT GAMMA: Castle of the Winds Redux (Julien)
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 //User Include
-#include "include/res_path.h"
-#include "include/cleanup.h"
-#include "include/logSDLError.h"
-#include "include/jpfSDLTexture.h"
 #include "include/core.h"
 #include "include/shell.h"
+#include "include/res_path.h"
+#include "include/cleanup.h"
+#include "include/textFileParser.h"
+#include "include/logSDLError.h"
+#include "include/jpfSDLTexture.h"
 
-//DEBUG Variable
+//DEBUG variable. SHOULD NOT BE IN RELEASE.
 int debug;
 
-//Settings Input Variables
-std::ifstream fileRead; //Used to read from an initial settings file.
+/** Initial Settings Variables
+Variables that the main function needs access to in order to launch the game 
+with the correct settings loaded from disk. These variables should be set by
+the settingsRead() function.
+**/
+int screenX, screenY; //Stores read values for screen X and Y dimensions.
 
-//Initial Settings Variables
-int screenX, screenY; //Used to temporarily store read values from the settings file.
+/** Temporary Settings Variables
+Temporary variables that define some contants the game uses. SHOULD NOT BE 
+IN RELEASE. These values should eventually come from the Initial Settings 
+Variables or be defined constants.
+**/
+const int SCREEN_WIDTH = 1600; //Window X Dimension.
+const int SCREEN_HEIGHT = 928; //Window Y Dimension.
+const int TILE_SIZE = 32; //The dimensions in pixels of one tile in the game.
 
-const int SCREEN_WIDTH = 1600;
-const int SCREEN_HEIGHT = 928;
-const int TILE_SIZE = 32;
+//Reads initial settings used for when the game is launched. This includes things
+//like what dimensions the game window should be, whether it should be fullscreen
+//or not etc. 
+void settingsRead() {
+	//TODO: Implement reading from a settings.txt file which is included 
+	//in the main directory.
+}
 
 int main(int argc, char** argv) {
-	//PRE GAME LOOP
-	//Initialize SDL video subsystem
+	/**PRE GAME LOOP**/
+	//SDL Video Subsystem Initialization
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		logSDLError(std::cout, "SDL_INIT");
 		return 1;
 	}
 
-	//Initialize SDL image subsystem
+	//SDL Image Subsystem Initialization
 	if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG) {
 		logSDLError(std::cout, "IMG_INIT");
 		SDL_Quit();
 		return 1;
 	}
 
-	//Create SDL Window, Handle Error if it Fails
-	SDL_Window* window = SDL_CreateWindow("Hello World!", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-	if(window == nullptr) {
+	//SDL Window Creation
+	SDL_Window* app = SDL_CreateWindow("Hello World!", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	//Error Handling
+	if(app == nullptr) {
 		logSDLError(std::cout, "CreateWindow");
 		SDL_Quit();
 		return 1;
 	}
 
-	//Create SDL Renderer, Handle Error if it Fails
-	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	//SDL Renderer Creation
+	SDL_Renderer* renderer = SDL_CreateRenderer(app, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	//Error Handling
 	if (renderer == nullptr) {
 		logSDLError(std::cout, "CreateRenderer");
-		cleanup(window);
+		cleanup(app);
 		SDL_Quit();
 		return 1;
 	}
+
+	/**Game Creation
+	Sets up the game world as far as the application is concerned. The Core handles the internal specifics
+	of the game and its logic while the Shell handles the Graphical Interface and interaction with the User.
+	**/
+	static Shell display(app, renderer);
+	static Core logic(app, renderer);
+	logic.setShell(&display);
+	display.setCore(&logic);
 
 	//Create an SDL surface and load .bmps on it, Handle Error if it Fails
 	const std::string resPath = getResourcePath();
 	SDL_Texture* background = loadTexture(resPath + "tileable_grass_00.png", renderer);
 	SDL_Texture* foreground = loadTexture(resPath + "playerSprite.png", renderer);
 	if(background == nullptr || foreground == nullptr) {
-		cleanup(background, foreground, renderer, window);
+		cleanup(background, foreground, renderer, app);
 		IMG_Quit();
 		SDL_Quit();
 		return 1;
@@ -88,7 +114,7 @@ int main(int argc, char** argv) {
 	//pY = SCREEN_HEIGHT / 2 - fH / 2;
 	pX = 0; pY = 0;
 
-	//GAME LOOP
+	/**GAME LOOP**/
 	while (running) {
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT) {
@@ -142,9 +168,9 @@ int main(int argc, char** argv) {
 		SDL_RenderPresent(renderer);
 	}
 	
-	//POST GAME LOOP
+	/**POST GAME LOOP**/
 	//Clean everything up and quit SDL
-	cleanup(background, foreground, renderer, window);
+	cleanup(background, foreground, renderer, app);
 	SDL_Quit();
 
 	return 0;

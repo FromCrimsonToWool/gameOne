@@ -68,17 +68,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="core.h" />
     <ClInclude Include="include\cleanup.h" />
+    <ClInclude Include="include\core.h" />
     <ClInclude Include="include\jpfSDLTexture.h" />
     <ClInclude Include="include\logSDLError.h" />
     <ClInclude Include="include\res_path.h" />
-    <ClInclude Include="shell.h" />
+    <ClInclude Include="include\shell.h" />
+    <ClInclude Include="include\textFileParser.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shell.cpp" />
+    <ClCompile Include="textFileParser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

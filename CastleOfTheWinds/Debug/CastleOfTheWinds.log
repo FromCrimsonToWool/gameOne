@@ -1,15 +1,17 @@
-﻿Build started 5/16/2015 12:33:03 PM.
-     1>Project "H:\Dropbox\Game Development\ProjectGamma\CastleOfTheWinds\CastleOfTheWinds.vcxproj" on node 2 (Build target(s)).
+﻿Build started 5/21/2015 10:43:06 PM.
+     1>Project "H:\Dropbox\Game Development\ProjectGamma\Castle_Of_The_Winds-Universal\CastleOfTheWinds\CastleOfTheWinds.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         M:\Applications\Microsoft Visual Studio Ultimate 2013\VC\bin\CL.exe /c /I"M:\Applications\SDL2-2.0.3\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         M:\Applications\Microsoft Visual Studio Ultimate 2013\VC\bin\CL.exe /c /I"M:\Applications\SDL2-2.0.3\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp textFileParser.cpp
+         textFileParser.cpp
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\textfileparser.cpp(1): fatal error C1083: Cannot open include file: 'textFileParser.h': No such file or directory
          main.cpp
-       Link:
-         M:\Applications\Microsoft Visual Studio Ultimate 2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Dropbox\Game Development\ProjectGamma\Debug\CastleOfTheWinds.exe" /INCREMENTAL /NOLOGO /LIBPATH:"M:\Applications\SDL2-2.0.3\lib\x86" SDL2_image.lib SDL2.lib SDL2main.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\Dropbox\Game Development\ProjectGamma\Debug\CastleOfTheWinds.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\Dropbox\Game Development\ProjectGamma\Debug\CastleOfTheWinds.lib" /MACHINE:X86 Debug\core.obj
-         Debug\main.obj
-         Debug\shell.obj
-         CastleOfTheWinds.vcxproj -> H:\Dropbox\Game Development\ProjectGamma\Debug\CastleOfTheWinds.exe
-     1>Done Building Project "H:\Dropbox\Game Development\ProjectGamma\CastleOfTheWinds\CastleOfTheWinds.vcxproj" (Build target(s)).
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\main.cpp(88): error C2664: 'Core::Core(const Core &)' : cannot convert argument 1 from 'SDL_Window **' to 'SDL_Window *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\main.cpp(89): error C2664: 'Shell::Shell(const Shell &)' : cannot convert argument 1 from 'SDL_Window **' to 'SDL_Window *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+         Generating Code...
+     1>Done Building Project "H:\Dropbox\Game Development\ProjectGamma\Castle_Of_The_Winds-Universal\CastleOfTheWinds\CastleOfTheWinds.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.73
+Time Elapsed 00:00:00.40

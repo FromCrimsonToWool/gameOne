@@ -1,6 +1,9 @@
 #ifndef CORE_H
 #define CORE_H
 
+//Define Shell so Core realizes it is the outer layer of the game.
+class Shell;
+
 //SDL Include
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -10,9 +13,19 @@
 class Core {
 	private:
 		Shell* display;
+		SDL_Window* app;
+		SDL_Renderer* renderer;
 
-	public: 
+	public:
+		/**Constructors**/
+		Core();
+		Core(SDL_Window* a, SDL_Renderer* r);
 
+		/**Accessors & Mutators**/
+		//Tells the Core who the Shell is.
+		void setShell(Shell* s) { display = s; }
+		//Updates the Game Logic by time change DELTA_T.
+		void update(const float DELTA_T);
 };
 
 #endif //CORE_H INCLUDED
