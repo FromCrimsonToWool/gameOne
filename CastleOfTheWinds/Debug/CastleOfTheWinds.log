@@ -1,17 +1,37 @@
-﻿Build started 5/21/2015 10:43:06 PM.
+﻿Build started 6/4/2015 10:40:13 PM.
      1>Project "H:\Dropbox\Game Development\ProjectGamma\Castle_Of_The_Winds-Universal\CastleOfTheWinds\CastleOfTheWinds.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         M:\Applications\Microsoft Visual Studio Ultimate 2013\VC\bin\CL.exe /c /I"M:\Applications\SDL2-2.0.3\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp textFileParser.cpp
+         M:\Applications\Microsoft Visual Studio Ultimate 2013\VC\bin\CL.exe /c /I"M:\Applications\SDL2-2.0.3\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt core.cpp main.cpp shell.cpp textFileParser.cpp
          textFileParser.cpp
      1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\textfileparser.cpp(1): fatal error C1083: Cannot open include file: 'textFileParser.h': No such file or directory
+         shell.cpp
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\shell.cpp(31): error C2534: 'Shell' : constructor cannot return a value
+                 h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\shell.h(13) : see declaration of 'Shell'
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\shell.cpp(31): error C2562: 'Shell::Shell' : 'void' function returning a value
+                 h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\shell.h(22) : see declaration of 'Shell::Shell'
          main.cpp
-     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\main.cpp(88): error C2664: 'Core::Core(const Core &)' : cannot convert argument 1 from 'SDL_Window **' to 'SDL_Window *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\main.cpp(89): error C2664: 'Shell::Shell(const Shell &)' : cannot convert argument 1 from 'SDL_Window **' to 'SDL_Window *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\main.cpp(103): error C2065: 'foreground' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\main.cpp(129): error C2065: 'background' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\main.cpp(132): error C2065: 'foreground' : undeclared identifier
+         core.cpp
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(16): error C2065: 'gameLoop' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(26): error C2065: 'gameLoop' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(31): error C2065: 'pY' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(32): error C2065: 'pY' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(36): error C2065: 'pY' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(36): error C2065: 'SCREEN_HEIGHT' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(36): error C2065: 'TILE_SIZE' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(37): error C2065: 'pY' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(41): error C2065: 'pX' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(41): error C2065: 'TILE_SIZE' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(42): error C2065: 'pX' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(46): error C2065: 'pX' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(46): error C2065: 'SCREEN_WIDTH' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(46): error C2065: 'TILE_SIZE' : undeclared identifier
+     1>h:\dropbox\game development\projectgamma\castle_of_the_winds-universal\castleofthewinds\core.cpp(47): error C2065: 'pX' : undeclared identifier
          Generating Code...
      1>Done Building Project "H:\Dropbox\Game Development\ProjectGamma\Castle_Of_The_Winds-Universal\CastleOfTheWinds\CastleOfTheWinds.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.40
+Time Elapsed 00:00:02.35

@@ -16,6 +16,7 @@ class Core {
 		SDL_Window* app;
 		SDL_Renderer* renderer;
 
+		bool gameLoop;
 	public:
 		/**Constructors**/
 		Core();
@@ -24,6 +25,8 @@ class Core {
 		/**Accessors & Mutators**/
 		//Tells the Core who the Shell is.
 		void setShell(Shell* s) { display = s; }
+		//Checks if the Core is running and thus by extension the game itself.
+		bool isRunning();
 		//Updates the Game Logic by time change DELTA_T.
 		void update(const float DELTA_T);
 };

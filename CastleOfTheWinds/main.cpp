@@ -1,7 +1,7 @@
 /**
 PROJECT GAMMA: Castle of the Winds Redux (Julien)
 @author Julien Fernandes
-@version 0.01b Wherein The Core and Shell Are Made
+@version 0.01cALPHA Wherein We Write Very Boring Boilerplate
 **/
 
 //Standard Include
@@ -14,7 +14,6 @@ PROJECT GAMMA: Castle of the Winds Redux (Julien)
 //User Include
 #include "include/core.h"
 #include "include/shell.h"
-#include "include/res_path.h"
 #include "include/cleanup.h"
 #include "include/textFileParser.h"
 #include "include/logSDLError.h"
@@ -90,88 +89,36 @@ int main(int argc, char** argv) {
 	logic.setShell(&display);
 	display.setCore(&logic);
 
-	//Create an SDL surface and load .bmps on it, Handle Error if it Fails
-	const std::string resPath = getResourcePath();
-	SDL_Texture* background = loadTexture(resPath + "tileable_grass_00.png", renderer);
-	SDL_Texture* foreground = loadTexture(resPath + "playerSprite.png", renderer);
-	if(background == nullptr || foreground == nullptr) {
-		cleanup(background, foreground, renderer, app);
-		IMG_Quit();
-		SDL_Quit();
-		return 1;
-	}
+	display.initCheck();
 
-	bool running = true;
-	SDL_Event event;
-
-	//Define Player x,y coordinates variables
-	int pX = 0, pY = 0;
-
-	//Calculate initial player position
-	int fW, fH;
-	SDL_QueryTexture(foreground, NULL, NULL, &fW, &fH);
-	//pX = SCREEN_WIDTH / 2 - fW / 2;
-	//pY = SCREEN_HEIGHT / 2 - fH / 2;
-	pX = 0; pY = 0;
+	/**Clock & Time Creation**/
+	//TODO: Figure out how to handle time in this game. Should be relatively simple.
+	const float DELTA_T = 0.0f;
+	const float INTERPOLATION = 0.0f;
 
 	/**GAME LOOP**/
-	while (running) {
-		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT) {
-				running = false;
-			}
-			if (event.type == SDL_KEYDOWN) {
-				switch (event.key.keysym.sym) {
-					case SDLK_UP:
-						if (pY >= 32) {
-							pY = pY - 32;
-						}
-					break;
-					case SDLK_DOWN:
-						if (pY <= SCREEN_HEIGHT - (TILE_SIZE * 2)) {
-							pY = pY + 32;
-						}
-					break;
-					case SDLK_LEFT:
-						if (pX >= TILE_SIZE) {
-							pX = pX - 32;
-						}
-					break;
-					case SDLK_RIGHT:
-						if (pX <= SCREEN_WIDTH - (TILE_SIZE * 2)) {
-							pX = pX + 32;
-						}
-					break;
-				}
-			}
-			if (event.type == SDL_MOUSEBUTTONDOWN) {
-				//running = false;
-			}
-		}
-
-		//Clear the Renderer, Place the Textures on it, then Display
+	while (logic.isRunning()) {
+		//Clear the application window for new update and drawing.
 		SDL_RenderClear(renderer);
 
-		//Determine number of tiles necessary to fill the screen.
-		int xTiles = SCREEN_WIDTH / TILE_SIZE;
-		int yTiles = SCREEN_HEIGHT / TILE_SIZE;
+		/**Logic Update**/
+		//Update the game logic in DELTA_T increments for the Core. 
+		logic.update(DELTA_T);
+		
+		/**Display Draw**/
+		//Update the game display taking INTERPOLATION into account.
+		display.draw(INTERPOLATION);
 
-		//Draw the tiles by calculating their positions
-		for (int i = 0; i < xTiles * yTiles; i++) {
-			int x = i % xTiles;
-			int y = i / xTiles;
-			renderTexture(background, renderer, x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-		}
-
-		renderTexture(foreground, renderer, pX, pY);
-
+		/**Update Renderer**/
+		//Update the SDL Renderer to display to the player.
 		SDL_RenderPresent(renderer);
 	}
 	
 	/**POST GAME LOOP**/
-	//Clean everything up and quit SDL
-	cleanup(background, foreground, renderer, app);
+	//Clean everything up and quit SDL.
+	cleanup(renderer, app);
 	SDL_Quit();
 
-	return 0;
+	//Upon exit from the game loop close the program successfully.
+	return EXIT_SUCCESS;
 } 

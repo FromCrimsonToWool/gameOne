@@ -1,0 +1,10 @@
+This is a scratchpad for use in writing down information while developing the project.
+
+Starting Town
+Bottom Dimensions of the starting town are as so,
+3 free + 5 blocked + 1 free
+Cornfields on either side besides this stretching to infinity
+Top Dimensions of the starting town are as so,
+2 free + 3 blocked (town gate) + 3 free
+Town is 27 tiles high at its tallest
+Town is 18 tiles wide at its widest
