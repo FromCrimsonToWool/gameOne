@@ -54,12 +54,19 @@ bool init(){
 
 bool loadMedia(){
 
+    SDL_Rect gSpriteClips[ 4 ];
+
     bool success = true;
     gCharacterSprite = loadSurface( "res/cotwsprites02.gif" );
 
     if( gCharacterSprite == NULL ){
         printf( "Failed to load character sprite image.\n" );
         success = false;
+    } else {
+        gSpriteClips[ 0 ].x = 32 * 6;
+        gSpriteClips[ 0 ].y = 32 * 16;
+        gSpriteClips[ 0 ].w = 32;
+        gSpriteClips[ 0 ].h = 32;
     }
 
     return success;
