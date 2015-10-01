@@ -5,6 +5,8 @@ CXXFLAGS = -F/Library/Frameworks -Wall -c -std=c++11
 LDFLAGS = -F/Library/Frameworks $(SDL)
 EXE = Castle_of_the_Winds-_Universal
 
+.PHONY: clean all
+
 all: $(EXE)
 
 $(EXE): main.o
