@@ -1,0 +1,1 @@
+/usr/bin/clang++    -std=c++11 -Wall -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Castle_Of_The_Winds-Universal.dir/main.cpp.o  -o Castle_Of_The_Winds-Universal 

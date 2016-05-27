@@ -1,0 +1,3 @@
+/Users/fctw/education/projects/Castle_Of_The_Winds-Universal/CMakeFiles/edit_cache.dir
+/Users/fctw/education/projects/Castle_Of_The_Winds-Universal/CMakeFiles/rebuild_cache.dir
+/Users/fctw/education/projects/Castle_Of_The_Winds-Universal/CMakeFiles/Castle_Of_The_Winds-Universal.dir
