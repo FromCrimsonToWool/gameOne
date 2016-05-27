@@ -57,7 +57,7 @@ bool loadMedia(){
     SDL_Rect gSpriteClips[ 4 ];
 
     bool success = true;
-    gCharacterSprite = loadSurface( "res/cotwsprites02.gif" );
+    gCharacterSprite = loadSurface( "lib/cotwsprites02.gif" );
 
     if( gCharacterSprite == NULL ){
         printf( "Failed to load character sprite image.\n" );
