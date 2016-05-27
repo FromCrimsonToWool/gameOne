@@ -13,7 +13,8 @@ $(EXE): main.o
 	$(CXX) $(LDFLAGS) bin/$< -o bin/$@
 
 main.o: main.cpp
-	$(CXX) $(CXXFLAGS) $< -o bin/$@
+	$(CXX) $(CXXFLAGS) lib/$< -o bin/$@
 
 clean:
-	rm bin/*.o && rm bin/$(EXE)
+	$(RM) bin/*.o
+	$(RM) bin/$(EXE)
