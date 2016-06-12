@@ -1,4 +1,4 @@
-cmake_minimum_required( VERSION 3.5.2 )
+cmake_minimum_required( VERSION 2.8 )
 project( Castle_Of_The_Winds-Universal )
 
 set( SOURCE_FILES src/main.cpp )
