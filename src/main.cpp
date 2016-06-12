@@ -1,10 +1,13 @@
 #include <iostream>
+#include <string>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+#include <src/res_path.h>
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
+//const std::string = getResourcePath("Castle_Of_The_Winds-Universal");
 
 //Starts up SDL and creates window
 bool init();
@@ -57,7 +60,7 @@ bool loadMedia(){
     SDL_Rect gSpriteClips[ 4 ];
 
     bool success = true;
-    gCharacterSprite = loadSurface( "lib/cotwsprites02.gif" );
+    gCharacterSprite = loadSurface( getResourcePath() + "cotwsprites02.gif" );
 
     if( gCharacterSprite == NULL ){
         printf( "Failed to load character sprite image.\n" );
