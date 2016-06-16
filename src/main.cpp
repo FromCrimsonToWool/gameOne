@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <src/res_path.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <include/res_path.h>
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 800;

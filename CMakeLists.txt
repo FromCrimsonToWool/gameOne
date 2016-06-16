@@ -27,7 +27,7 @@ endif()
 find_package( SDL2 REQUIRED )
 include_directories( ${SDL2_INCLUDE_DIR} )
 find_package( SDL2_image REQUIRED )
-include_directories(${SDL2_IMAGE_INCLUDE_DIR})
+include_directories( ${SDL2_IMAGE_INCLUDE_DIR} )
 
 add_executable( Castle_of_the_Winds-_Universal ${SOURCE_FILES} )
 target_link_libraries( Castle_of_the_Winds-_Universal ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARY} )
