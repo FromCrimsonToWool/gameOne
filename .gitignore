@@ -117,5 +117,6 @@ DerivedData
 
 ##Project specific ignores
 bin/Castle_of_the_Winds-_Universal*
+bin/CMakeFiles*
 !res/**/*.exe
 !res/**/*.dll
