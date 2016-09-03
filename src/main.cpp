@@ -12,22 +12,13 @@ const int SCREEN_HEIGHT = 600;
 class LTexture
 {
     public:
-        //Initializes variables
         LTexture();
-
-        //Deallocates memory
         ~LTexture();
 
-        //Loads image at specified path
         bool loadFromFile( std::string path );
-
-        //Deallocates texture
         void free();
-
-        //Renders texture at given point
         void render( int x, int y, SDL_Rect* clip = NULL );
 
-        //Gets image dimensions
         int getWidth();
         int getHeight();
 
@@ -35,7 +26,6 @@ class LTexture
         //The actual hardware texture
         SDL_Texture* mTexture;
 
-        //Image dimensions
         int mWidth;
         int mHeight;
 };
@@ -132,7 +122,7 @@ bool init(){
             printf( "Warning:  Linear texture filtering not enabled!" );
         }
 
-        gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+        gWindow = SDL_CreateWindow( "Castle of the Winds: Universal", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
         if( gWindow == NULL ){
             printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
             success = false;
@@ -159,7 +149,7 @@ bool init(){
 bool loadMedia(){
 
     bool success = true;
-    if( !gSpriteSheetTexture.loadFromFile( getResourcePath() + "cotwsprites02.gif" )){
+    if( !gSpriteSheetTexture.loadFromFile( getResourcePath() + "cotwspritesultimate.gif" )){
         printf( "Failed to load sprite sheet texture!\n" );
         success = false;
     } else {
@@ -218,8 +208,8 @@ int main(int, char**){
                 SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
                 SDL_RenderClear( gRenderer );
 
-                gSpriteSheetTexture.render( 0, 0, &gSpriteClips[ 0 ] );
-                gSpriteSheetTexture.render( SCREEN_WIDTH - gSpriteClips[ 1 ].w, 0, &gSpriteClips[ 1 ] );
+                gSpriteSheetTexture.render( SCREEN_WIDTH / 2 - gSpriteClips[ 0 ].w, SCREEN_HEIGHT / 2 - gSpriteClips[ 0 ].h / 2, &gSpriteClips[ 0 ] );
+                gSpriteSheetTexture.render( SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - gSpriteClips[ 1 ].h / 2, &gSpriteClips[ 1 ] );
                 gSpriteSheetTexture.render( 0, SCREEN_HEIGHT - gSpriteClips[ 2 ].h, &gSpriteClips[ 2 ] );
                 gSpriteSheetTexture.render( SCREEN_WIDTH - gSpriteClips[ 3 ].w, SCREEN_HEIGHT - gSpriteClips[ 3 ].h, &gSpriteClips[ 3 ] );
 
