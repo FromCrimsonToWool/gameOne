@@ -149,27 +149,27 @@ bool init(){
 bool loadMedia(){
 
     bool success = true;
-    if( !gSpriteSheetTexture.loadFromFile( getResourcePath() + "cotwspritesultimate.gif" )){
+    if( !gSpriteSheetTexture.loadFromFile( getResourcePath() + "spriteSheet.gif" )){
         printf( "Failed to load sprite sheet texture!\n" );
         success = false;
     } else {
-        gSpriteClips[ 0 ].x = 32 * 6;
-        gSpriteClips[ 0 ].y = 32 * 16;
+        gSpriteClips[ 0 ].x = 0;
+        gSpriteClips[ 0 ].y = 0;
         gSpriteClips[ 0 ].w = 32;
         gSpriteClips[ 0 ].h = 32;
 
-        gSpriteClips[ 1 ].x = 32 * 7;
-        gSpriteClips[ 1 ].y = 32 * 16;
+        gSpriteClips[ 1 ].x = 0;
+        gSpriteClips[ 1 ].y = 0;
         gSpriteClips[ 1 ].w = 32;
         gSpriteClips[ 1 ].h = 32;
 
-        gSpriteClips[ 2 ].x = 32 * 7;
-        gSpriteClips[ 2 ].y = 32 * 18;
+        gSpriteClips[ 2 ].x = 0;
+        gSpriteClips[ 2 ].y = 0;
         gSpriteClips[ 2 ].w = 32;
         gSpriteClips[ 2 ].h = 32;
 
-        gSpriteClips[ 3 ].x = 32 * 2;
-        gSpriteClips[ 3 ].y = 32 * 11;
+        gSpriteClips[ 3 ].x = 0;
+        gSpriteClips[ 3 ].y = 0;
         gSpriteClips[ 3 ].w = 32;
         gSpriteClips[ 3 ].h = 32;
 
@@ -205,7 +205,7 @@ int main(int, char**){
                     if( e.type == SDL_QUIT ){ quit = true; }
                 }
 
-                SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+                SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0x00 );
                 SDL_RenderClear( gRenderer );
 
                 gSpriteSheetTexture.render( SCREEN_WIDTH / 2 - gSpriteClips[ 0 ].w, SCREEN_HEIGHT / 2 - gSpriteClips[ 0 ].h / 2, &gSpriteClips[ 0 ] );
